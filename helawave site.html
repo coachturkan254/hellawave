@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#087f78">
+<meta name="description" content="HELAWAVE — Connect, chat, and grow through meaningful conversations.">
+<title>HELAWAVE — Get Paid to Chat</title>
+<style>
+:root{--navy:#111a2e;--muted:#6e7b90;--teal:#087f78;--teal-dark:#066a65;--coral:#ff685d;--bg:#f5f7fa;--white:#fff;--line:#e2e8ef;--green:#18a65b;--shadow:0 4px 14px rgba(22,39,60,.09)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--navy);background:var(--bg)}
+button,input,select{font:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+a{color:inherit;text-decoration:none}
+.topbar{position:sticky;top:0;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(16px,4vw,38px);background:rgba(255,255,255,.96);border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.logo{display:grid;place-items:center;width:48px;height:48px;flex:0 0 48px;border-radius:50%;color:white;font-weight:900;letter-spacing:-1px;background:linear-gradient(145deg,#11a99c,#066a65);border:3px solid #c5eee7;box-shadow:0 2px 6px #0002}
+.brand-name{font-size:clamp(17px,2vw,22px);font-weight:850;letter-spacing:-.6px;white-space:nowrap}
+.brand-name span{color:var(--coral)}
+.tagline{margin-top:1px;font-size:13px;color:var(--muted)}
+.online-pill{display:flex;align-items:center;gap:9px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;box-shadow:var(--shadow);white-space:nowrap;color:var(--muted)}
+.online-dot{width:11px;height:11px;background:var(--green);border-radius:50%}
+.online-pill strong{color:var(--navy)}
+.btn{border:0;cursor:pointer;display:inline-flex;justify-content:center;align-items:center;gap:9px;border-radius:999px;padding:14px 22px;font-weight:800;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 18px #10203020}
+.btn-coral{color:#fff;background:var(--coral)}
+.btn-teal{color:#fff;background:var(--teal)}
+.btn-outline{background:#fff;border:1px solid var(--line);color:var(--navy)}
+.header-cta{max-width:155px;line-height:1.2;text-align:left}
+main{max-width:1050px;margin:0 auto;padding:0 22px 48px}
+.hero{text-align:center;padding:68px 0 45px}
+.trust-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 18px;border-radius:999px;border:1px solid var(--line);background:white;box-shadow:var(--shadow);color:var(--teal);font-weight:800}
+.trust-badge .tiny-dot{width:10px;height:10px;background:var(--coral);border-radius:50%}
+h1{max-width:780px;margin:30px auto 18px;font-size:clamp(36px,6vw,62px);line-height:1.06;letter-spacing:-2.4px}
+.gradient-text{background:linear-gradient(90deg,#087f78,#14a89a 65%,#ff7669);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-copy{max-width:730px;margin:0 auto;color:var(--muted);font-size:clamp(18px,2.5vw,25px);line-height:1.55}
+.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin:30px 0 22px}
+.hero-actions .btn{min-height:58px;padding:17px 28px;font-size:17px}
+.checks{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 22px;color:var(--muted)}
+.checks span:before{content:"✓";display:inline-grid;place-items:center;width:20px;height:20px;margin-right:7px;border-radius:5px;color:#fff;background:#1eaf6c;font-weight:900;font-size:13px}
+.section{padding:42px 0}
+.section h2{margin:0 0 18px;font-size:clamp(27px,4vw,38px);letter-spacing:-1px;line-height:1.2}
+.section-copy{color:var(--muted);font-size:19px;line-height:1.65}
+.feature-list{display:grid;gap:12px;margin:22px 0;color:var(--muted);font-size:18px}
+.feature-list div{display:flex;gap:10px;align-items:flex-start}
+.feature-list b{color:#1ca65b}
+.section-heading{text-align:center;margin-bottom:24px}
+.section-heading p{color:var(--muted);margin:8px 0 0;font-size:17px}
+.profiles{display:grid;gap:16px}
+.profile{display:flex;align-items:center;gap:15px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:18px;box-shadow:var(--shadow)}
+.profile-photo{width:68px;height:68px;flex:0 0 68px;object-fit:cover;border-radius:50%;border:3px solid #e3f4f1;background:#e9eff3}
+.age{font-size:14px;font-weight:500;color:var(--muted)}
+.profile-main{flex:1;min-width:0}
+.profile-name{font-size:19px;font-weight:850;margin-bottom:6px}
+.profile-meta{color:var(--muted);font-size:15px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.status{display:inline-flex;align-items:center;gap:5px;color:var(--muted);margin-left:5px}
+.status .online-dot{display:inline-block;width:10px;height:10px;background:#19a65b;border-radius:50%;box-shadow:0 0 0 3px #19a65b20}
+.typing-status{font-size:14px;color:var(--muted);margin-top:5px}
+.typing-status.is-typing{color:var(--teal);font-weight:700;letter-spacing:.3px}
+.profile-actions{display:flex;gap:8px;margin-top:10px}
+.profile-actions .btn{padding:9px 16px;font-size:14px}
+.testimonials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.quote-card{padding:24px;border:1px solid var(--line);border-radius:24px;background:white;box-shadow:var(--shadow)}
+.quote-card p{color:var(--muted);line-height:1.6;margin-bottom:0}
+.sample-note{font-size:12px;color:var(--muted);text-align:center;margin-top:14px}
+.cta-panel{margin:42px 0;text-align:center;color:#fff;padding:44px 24px;border-radius:32px;background:radial-gradient(circle at 15% 10%,#169b8d,transparent 45%),linear-gradient(120deg,#086b66,#07877d);box-shadow:0 16px 36px #087f7828}
+.cta-panel h2{font-size:clamp(29px,4vw,43px);margin:0 0 12px}
+.cta-panel p{max-width:600px;margin:0 auto 24px;font-size:18px;line-height:1.55;color:#d8f4f0}
+.cta-panel .btn{background:var(--coral);color:white;max-width:100%}
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-question{width:100%;text-align:left;padding:22px 0;border:0;background:transparent;color:var(--navy);font-weight:800;display:flex;justify-content:space-between;gap:15px;cursor:pointer;font-size:18px}
+.faq-answer{display:none;padding:0 30px 20px 0;color:var(--muted);line-height:1.65}
+.faq-item.open .faq-answer{display:block}
+.faq-item.open .chevron{transform:rotate(180deg)}
+.chevron{transition:transform .2s;color:var(--muted)}
+footer{background:#111a2b;color:#d9e2ee;padding:34px 22px}
+.footer-inner{max-width:1050px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px}
+.footer-inner p{color:#aab7c9;max-width:470px;line-height:1.6}
+.footer-links{display:flex;flex-wrap:wrap;gap:15px;align-items:center;font-size:14px}
+.footer-links a:hover{color:#fff;text-decoration:underline}
+.install-card{position:fixed;z-index:15;right:18px;bottom:18px;width:235px;padding:15px;border-radius:28px;background:rgba(255,255,255,.97);border:1px solid var(--line);box-shadow:0 8px 26px #0e263022;text-align:center}
+.install-card .logo{width:42px;height:42px;min-width:42px;margin:0 auto 8px;font-size:12px}
+.install-card strong{display:block;font-size:15px}
+.install-card small{display:block;margin:5px 0 10px;color:var(--muted)}
+.install-card .btn{width:100%;padding:10px;font-size:14px}
+.dismiss{position:absolute;top:7px;right:10px;border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:18px}
+.toast{position:fixed;z-index:30;left:50%;bottom:24px;transform:translate(-50%,140%);background:#fff;border:1px solid var(--line);border-radius:999px;padding:13px 18px;box-shadow:var(--shadow);color:var(--navy);transition:transform .25s;max-width:calc(100% - 28px);text-align:center}
+.toast.show{transform:translate(-50%,0)}
+.withdraw-toast{position:fixed;left:18px;bottom:18px;z-index:35;display:flex;align-items:center;gap:12px;width:min(440px,calc(100% - 36px));padding:13px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.97);box-shadow:0 8px 25px rgba(12,32,50,.13);opacity:0;transform:translateY(24px);pointer-events:none;transition:opacity .35s ease,transform .35s ease}
+.withdraw-toast.show{opacity:1;transform:translateY(0)}
+.withdraw-check{display:grid;place-items:center;flex:0 0 42px;width:42px;height:42px;border-radius:50%;background:#e0f4e8;color:#199957;font-size:22px;font-weight:900}
+.withdraw-copy{min-width:0;flex:1;font-size:14px;line-height:1.35;color:var(--muted)}
+.withdraw-copy strong{color:var(--navy)}
+.withdraw-copy .amount{color:#16894d;font-weight:850;white-space:nowrap}
+.withdraw-time{font-size:12px;white-space:nowrap;color:var(--muted)}
+@media(min-width:760px){.intro-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}.profiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+.topbar{gap:8px;padding:11px 12px}
+.logo{width:43px;height:43px;flex-basis:43px;font-size:13px}
+.tagline{font-size:11px}
+.online-pill{padding:9px 10px;gap:6px;font-size:12px}
+.online-pill .online-word{display:none}
+.header-cta{padding:11px 13px;font-size:13px;max-width:105px}
+main{padding:0 20px 35px}
+.hero{padding:48px 0 28px}
+h1{letter-spacing:-1.5px}
+.hero-actions{display:grid}
+.hero-actions .btn{width:100%}
+.section{padding:32px 0}
+.section-copy{font-size:17px}
+.profile{padding:14px;gap:11px;border-radius:23px}
+.profile-photo{width:54px;height:54px;flex-basis:54px}
+.profile-name{font-size:16px}
+.profile-meta{font-size:13px}
+.profile-actions .btn{padding:8px 13px}
+.testimonials{grid-template-columns:1fr}
+.install-card{width:210px;right:10px;bottom:10px;padding:12px;border-radius:24px}
+.install-card .logo{width:36px;height:36px;min-width:36px}
+.cta-panel{padding:35px 18px;border-radius:25px}
+.withdraw-toast{left:10px;bottom:10px;width:calc(100% - 20px);gap:9px;padding:10px 12px}
+.withdraw-check{width:36px;height:36px;flex-basis:36px;font-size:19px}
+.withdraw-copy{font-size:12px}
+.withdraw-time{font-size:10px}
+}
+@media(max-width:370px){.brand-name{font-size:15px}.online-pill{display:none}.header-cta{max-width:none}.install-card{width:185px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#home" aria-label="HELAWAVE home">
+<div class="logo">HW</div><div><div class="brand-name">HELAWAVE<span>.Site</span></div><div class="tagline">Get paid to chat</div></div>
+</a>
+<div class="online-pill" aria-label="Online members"><span class="online-dot"></span><strong id="onlineCount">Community</strong><span class="online-word">members</span></div>
+<button class="btn btn-coral header-cta" data-open="register">Start Earning</button>
+</header>
+
+<main id="home">
+<section class="hero">
+<div class="trust-badge"><span class="tiny-dot"></span> Connect with a growing community</div>
+<h1>Get Paid to Chat with<br><span class="gradient-text">People Worldwide</span></h1>
+<p class="hero-copy">Connect, have meaningful conversations, and explore opportunities through HELAWAVE — right from your phone.</p>
+<div class="hero-actions">
+<button class="btn btn-coral" data-open="register">START CHAT &amp; EARN <span aria-hidden="true">→</span></button>
+<a class="btn btn-outline" href="#opportunities">Explore Opportunities</a>
+</div>
+<div class="checks"><span>Flexible conversations</span><span>Clear earning rules</span><span>Phone friendly</span></div>
+</section>
+
+<section class="section intro-grid" id="opportunities">
+<div>
+<h2>Discover Real Opportunities to Earn by Chatting</h2>
+<p class="section-copy">HELAWAVE is designed to help people connect through conversations and community activities. Explore the platform, review the rules, and choose the features that suit you.</p>
+<div class="feature-list">
+<div><b>✓</b><span>Connect with people at your own pace</span></div>
+<div><b>✓</b><span>Explore eligible paid conversation opportunities</span></div>
+<div><b>✓</b><span>Review payment terms before participating</span></div>
+<div><b>✓</b><span>Use a mobile-friendly experience</span></div>
+</div>
+<p class="section-copy">Availability of paid chats and withdrawals depends on the services enabled on the live platform. No income is guaranteed.</p>
+</div>
+<div class="quote-card">
+<div style="font-size:34px;margin-bottom:12px">💬</div>
+<h3 style="margin:0 0 10px;font-size:23px">Conversations that connect</h3>
+<p>Build your profile, meet people respectfully, and learn how the platform works before starting a conversation.</p>
+<button class="btn btn-teal" style="margin-top:20px" data-open="register">Create an account →</button>
+</div>
+</section>
+
+<section class="section" id="members">
+<div class="section-heading"><h2>💬 Live Members</h2><p>Discover people from around the world and start a conversation.</p></div>
+<div class="profiles">
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇺🇸 Margaret W. <span class="age">· 58</span></div><div class="profile-meta">United States <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Looking to talk 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇬🇧 Robert H. <span class="age">· 62</span></div><div class="profile-meta">United Kingdom <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status is-typing">••• typing...</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇩🇪 Helga S. <span class="age">· 55</span></div><div class="profile-meta">Germany <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Looking to talk 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇨🇦 James M. <span class="age">· 64</span></div><div class="profile-meta">Canada <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Available to chat 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇦🇺 Karen P. <span class="age">· 51</span></div><div class="profile-meta">Australia <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status is-typing">••• typing...</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇸🇪 Lars E. <span class="age">· 60</span></div><div class="profile-meta">Sweden <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Looking to talk 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇿🇦 Amina K. <span class="age">· 46</span></div><div class="profile-meta">South Africa <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Available to chat 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇳🇿 Daniel T. <span class="age">· 53</span></div><div class="profile-meta">New Zealand <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status is-typing">••• typing...</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇫🇷 Chloe R. <span class="age">· 49</span></div><div class="profile-meta">France <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Looking to talk 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇺🇸 Ethan B. <span class="age">· 57</span></div><div class="profile-meta">United States <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status is-typing">••• typing...</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇪🇸 Sofia M. <span class="age">· 44</span></div><div class="profile-meta">Spain <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Available to chat 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+<article class="profile">
+<img class="profile-photo" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=160&h=160&q=80" alt="Sample profile" loading="lazy">
+<div class="profile-main"><div class="profile-name">🇨🇦 Noah P. <span class="age">· 52</span></div><div class="profile-meta">Canada <span class="status"><i class="online-dot"></i> Online</span></div><div class="typing-status">Looking to talk 💬</div><div class="profile-actions"><button class="btn btn-teal" data-open="login">Start</button><button class="btn btn-outline" data-profile>View</button></div></div>
+</article>
+</div>
+<p class="sample-note">Demo profiles and activity indicators are illustrative and are not live user data.</p>
+</section>
+
+<section class="section" id="community">
+<div class="section-heading"><h2>Built Around Real Connections</h2><p>Simple tools for respectful communication and a transparent experience.</p></div>
+<div class="testimonials">
+<article class="quote-card"><strong>🌱 Start at your own pace</strong><p>Complete your profile, review community guidelines, and learn how conversations work before joining in.</p></article>
+<article class="quote-card"><strong>🔒 Know the rules</strong><p>Review any fees, eligibility requirements, and withdrawal conditions before using paid features.</p></article>
+</div>
+</section>
+
+<section class="cta-panel">
+<h2>Ready to Start Connecting?</h2>
+<p>Create your HELAWAVE account to explore the community. Registration does not guarantee earnings or access to paid features.</p>
+<button class="btn" data-open="register">CREATE YOUR HELAWAVE ACCOUNT <span>→</span></button>
+<div style="margin-top:15px;color:#d8f4f0;font-size:14px">🔐 Secure account flow · Clear terms · Community-first</div>
+</section>
+
+<section class="section" id="faq">
+<h2>Frequently Asked Questions</h2>
+<p class="section-copy" style="margin-bottom:25px">Everything you should know before getting started with HELAWAVE.</p>
+<div class="faq">
+<div class="faq-item"><button class="faq-question" aria-expanded="false">How does HELAWAVE work? <span class="chevron">⌄</span></button><div class="faq-answer">Create an account, complete your profile, and explore the features currently available. Any paid feature should explain its eligibility and rules before you participate.</div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false">How much can I earn? <span class="chevron">⌄</span></button><div class="faq-answer">Earnings, if enabled, depend on the platform's actual payment rules, qualifying activity, and any applicable fees. HELAWAVE does not guarantee income.</div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false">Do I need experience? <span class="chevron">⌄</span></button><div class="faq-answer">You can start by creating a profile and reading the community guidelines. Any additional requirements will be shown when the relevant feature is available.</div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false">How do withdrawals work? <span class="chevron">⌄</span></button><div class="faq-answer">Withdrawal methods, minimums, fees, and processing times must be configured and verified by the platform operator. This demo does not process payments.</div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false">Is registration free? <span class="chevron">⌄</span></button><div class="faq-answer">This prototype does not charge registration fees. Any production version should clearly disclose all charges and conditions before a user pays.</div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false">How can I contact support? <span class="chevron">⌄</span></button><div class="faq-answer">Add your verified support email or contact link in the site settings before launching publicly.</div></div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="footer-inner">
+<div><div class="brand-name" style="color:#fff">HELAWAVE<span>.Site</span></div><p>Connect, chat, and grow through meaningful conversations. This prototype needs a secure backend before real accounts, chats, earnings, or withdrawals can operate.</p></div>
+<nav class="footer-links" aria-label="Footer links"><a href="#opportunities">About</a><a href="#faq">Help &amp; FAQ</a><a href="#faq">Privacy</a><a href="#faq">Terms</a><a href="mailto:support@example.com">Contact</a></nav>
+</div>
+</footer>
+
+<aside class="install-card" id="installCard" aria-label="Install HELAWAVE">
+<button class="dismiss" id="dismissInstall" aria-label="Dismiss install card">×</button>
+<div class="logo">HW</div><strong>Install HELAWAVE</strong><small>Add this website to your home screen</small>
+<button class="btn btn-teal" id="installButton">How to Install</button>
+</aside>
+
+<div class="withdraw-toast" id="withdrawToast" aria-live="polite">
+<div class="withdraw-check">✓</div><div class="withdraw-copy" id="withdrawCopy"><strong>Sample activity</strong><br>Example withdrawal notification</div><div class="withdraw-time" id="withdrawTime">Demo</div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* All account-related buttons go to your supplied HELAWAVE registration link. */
+const HELAWAVE_AUTH_URL = "https://helawave.com/auth/register?ref=9C95F403";
+
+document.querySelectorAll("[data-open]").forEach(button => {
+  button.addEventListener("click", () => {
+    window.location.href = HELAWAVE_AUTH_URL;
+  });
+});
+
+const toast = document.getElementById("toast");
+let toastTimer;
+
+function notify(message) {
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 3200);
+}
+
+document.querySelectorAll("[data-profile]").forEach(button => {
+  button.addEventListener("click", () => {
+    notify("Sample profile preview. Real profiles require a connected database.");
+  });
+});
+
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const item = button.closest(".faq-item");
+    const wasOpen = item.classList.contains("open");
+
+    document.querySelectorAll(".faq-item").forEach(other => {
+      other.classList.remove("open");
+      other.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+    });
+
+    if (!wasOpen) {
+      item.classList.add("open");
+      button.setAttribute("aria-expanded", "true");
+    }
+  });
+});
+
+document.getElementById("dismissInstall").addEventListener("click", () => {
+  document.getElementById("installCard").remove();
+});
+
+document.getElementById("installButton").addEventListener("click", () => {
+  notify('On your phone, open the browser menu and choose "Add to Home screen" if available.');
+});
+
+/* These are examples for demonstration, NOT verified real withdrawals. */
+const demoWithdrawals = [
+  {name:"Aisha",country:"Uganda",flag:"🇺🇬",amount:"UGX 120,000"},
+  {name:"Oliver",country:"United Kingdom",flag:"🇬🇧",amount:"£78.40"},
+  {name:"Kwame",country:"Ghana",flag:"🇬🇭",amount:"GHS 650"},
+  {name:"Amaka",country:"Nigeria",flag:"🇳🇬",amount:"₦85,000"},
+  {name:"Achille",country:"Cameroon",flag:"🇨🇲",amount:"XAF 42,000"},
+  {name:"Lars",country:"Sweden",flag:"🇸🇪",amount:"SEK 820"},
+  {name:"Mia",country:"Australia",flag:"🇦🇺",amount:"A$95.00"},
+  {name:"Daniel",country:"Canada",flag:"🇨🇦",amount:"C$110.00"},
+  {name:"Nia",country:"Kenya",flag:"🇰🇪",amount:"KSh 8,500"}
+];
+
+const withdrawToast = document.getElementById("withdrawToast");
+const withdrawCopy = document.getElementById("withdrawCopy");
+const withdrawTime = document.getElementById("withdrawTime");
+let withdrawalIndex = 0;
+
+function showDemoWithdrawal() {
+  const item = demoWithdrawals[withdrawalIndex % demoWithdrawals.length];
+
+  withdrawCopy.replaceChildren();
+
+  const name = document.createElement("strong");
+  name.textContent = item.flag + " " + item.name;
+
+  const countryText = document.createTextNode(" from " + item.country);
+  const lineBreak = document.createElement("br");
+  const amount = document.createElement("span");
+  amount.className = "amount";
+  amount.textContent = "Example withdrawal: " + item.amount;
+
+  withdrawCopy.append(name, countryText, lineBreak, amount);
+  withdrawTime.textContent = "Demo";
+  withdrawToast.classList.add("show");
+
+  withdrawalIndex++;
+  setTimeout(() => withdrawToast.classList.remove("show"), 5200);
+}
+
+setTimeout(() => {
+  showDemoWithdrawal();
+  setInterval(showDemoWithdrawal, 9000);
+}, 1800);
+
+/* The online member count is a placeholder until real data is connected. */
+document.getElementById("onlineCount").textContent = "Community";
+</script>
+</body>
+</html>
